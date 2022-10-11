@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Counter</title>
+    <script>
+        function sel(){
+            nam=document.getElementById("name").value;
+            slc=document.getElementById("type").value;
+            if(nam=="" && slc=="")
+            {
+
+            }
+            else{
+                document.getElementById("part0").style.display="none";
+                document.getElementById("part1").style.display="flex";
+                document.getElementById("part1").style.animation="anima2 linear .5s 1";
+                document.getElementById("head").style.display="none";
+            }
+        }
+        function res(){
+            adult=document.getElementById("nad").value;
+            child=document.getElementById("ncd").value;
+            if(adult=="" && child=="")
+            {
+
+            }
+            else
+            {
+                document.getElementById("part2").style.display="flex";
+                document.getElementById("part2").style.animation="anima3 linear .5s 1";
+                document.getElementById("part1").style.display="none";
+                 //USER NAME
+                 name=document.getElementById("name").value;
+                document.getElementById("iname").innerHTML=name;
+
+                // TYPE OF TICKET
+                tct=document.getElementById("type").value;
+                document.getElementById("itct").innerHTML=tct;
+
+                // NO OF ADULTS
+                noa=parseInt(document.getElementById("nad").value);
+                document.getElementById("inad").innerHTML=noa;
+
+                //NO OF CHILDS
+                noc=parseInt(document.getElementById("ncd").value);
+                document.getElementById("incd").innerHTML=noc;
+
+                //CONDITION OF SELECTING THE PRICE OF THE TICKET
+                if(tct=="Silver")
+                {
+                    price=200;  
+                }
+                else if(tct=="Gold")
+                {
+                    price=300;
+
+                }
+                else if(tct=="Platinum")
+                {
+                    price=400;
+
+                }
+                else if(tct=="Diamond")
+                {
+                    price=500;
+
+                }
+
+                //TOTAL BILL AS PER ALL CRITERIA AND PRICES OF THE TICKETS
+                tbil=noa*price+noc*(price/2);
+                document.getElementById("ibil").innerHTML="₹"+ tbil;
+
+                //CHECKING ELIGIBILITY FOR FREE COUPONS, COLD DRINK AND POPCORN
+                if(tbil<1000)
+                {
+                    document.getElementById("icpn").innerHTML="None";
+                    document.getElementById("ibv").innerHTML="None";
+                }
+                else if(tbil>=1000 && tbil<2000)
+                {
+                    document.getElementById("icpn").innerHTML="None";
+                    document.getElementById("ibv").innerHTML="1 Cold Drinks & 1 Popcorn";
+                }
+                else if(tbil>=2000 && tbil<3000)
+                {
+                    document.getElementById("icpn").innerHTML="None";
+                    document.getElementById("ibv").innerHTML="2 Cold Drinks & 2 Popcorn";
+                }
+                else if(tbil>=3000 && tbil<4000)
+                {
+                    document.getElementById("icpn").innerHTML="None";
+                    document.getElementById("ibv").innerHTML="3 Cold Drinks & 3 Popcorn";
+                }
+                else if(tbil>=4000)
+                {
+                    document.getElementById("icpn").innerHTML="1 Special Coupon";
+                    document.getElementById("ibv").innerHTML="4 Cold Drinks & 4 Popcorn";
+                }
+                }        
+        }
+            
+    </script>
+</head>
+<style>
+    *{
+        padding: 0%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    html{
+        font-size: 16px;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        height: auto;
+        background-image: url(bodybg.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .heading{
+        text-align: center;
+        color:rgb(255, 252, 172);
+        margin-top:  1.25rem;
+        font-size: 3.125rem;
+    }
+    .user-input1 table{
+        margin-top: 0.9375rem;
+    }
+    .user-input1{
+        width: 28.125rem;
+        height: 18.75rem;
+        background-image:url(formbg.jpg);
+        background-position: center;
+        background-size: cover;
+        border-radius: 1.875rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        color: rgb(255, 255, 255);
+    }
+    .user-input1 table tr td{
+        text-align: center;
+        font-size: 1.25rem;
+    
+    }
+    .user-input1 input{
+        width: 12.5rem;
+        height: 1.875rem;
+        border: none;       
+    }
+    .user-input1 select{
+        width:12.5rem;
+        height: 1.875rem;
+        border: none;
+        background-color: rgb(34, 51, 53);
+        color: burlywood;
+        border-radius: 1.875rem;
+        text-align: center;
+        font-size: medium;
+        margin-left: 1.25rem;
+    }
+    #name{
+        background-color: rgb(34, 51, 53);
+        border-radius: 0.625rem;
+        text-align: center;
+        color: burlywood;
+        font-size: medium;
+        margin-left: 1.25rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    #btn1{
+        background-color: rgb(34, 51, 53);
+        color: burlywood;
+        height: 2.5rem;
+        width: 8.125rem;
+        border-radius: 1.875rem;
+        font-size: 1.25rem;
+        font-family:'Times New Roman', Times, serif;
+        box-shadow: 0px 0px 1.875rem 0.1875rem rgb(34, 51, 53);
+    }
+
+
+    .user-input2{
+        width: 31.25rem;
+        height: 18.75rem;
+        background-image:url(formbg.jpg);
+        background-position: center;
+        background-size: cover;
+        border-radius: 1.875rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        color: rgb(255, 255, 255);
+        font-size: 1.125rem;
+        text-align: center;
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+
+
+    }
+    .user-input2 table{
+        margin-top: 3.125rem;
+        margin-bottom: 1.875rem;
+    }
+    .user-input2 input{
+        width: 9.375rem;
+        height: 2.5rem;
+        border-radius: 0.625rem;
+        border: none; 
+        margin-left: 0.625rem;  
+        background-color: rgb(34, 51, 53);
+        color: burlywood;
+        text-align: center;
+        
+
+    }
+    .tct-cont{
+        width: 100%;
+        height: 25rem;    
+    }
+
+
+
+
+    h1{
+        color: rgb(244, 206, 156);
+        font-size: 3rem;
+        margin: 1rem;
+    }
+
+    h3{
+        color: rgb(244, 206, 156);
+        font-size: 1.25rem;
+        z-index: 2;
+        margin-bottom: 0.625rem;
+    }
+    .ticket-bill{
+        width: 31.25rem;
+        height: 21.875rem;
+        background-image: url(bgsel.jpg);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 1.25rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        z-index: -2;
+        transition: .5s;
+        /* position:absolute;
+        left: 50%;
+        top: 20%;
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%); */
+    }
+    .ticket-bill table{
+
+        width: 30rem;
+        height: 18.75rem;
+        box-shadow: 0px 0px 2.5rem 0.625rem  rgb(0, 0, 0);
+        border-bottom-left-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
+    }
+    .ticket-bill tr{
+        width: 25rem;
+        height: 2.5rem;
+        margin-left: 1.25rem;
+    }
+    .ticket-bill td{
+        font-size: 1.125rem;
+        margin-left: 0.625rem;
+    }
+    .fname{
+        color:rgb(226, 226, 226);
+        text-align: right;
+        width: 14rem;
+        margin-left: 0.625rem;
+        font-weight: 800;
+
+    }
+    .fvalue{
+        width: 13.125rem;
+        color:rgb(226, 223, 147);
+        text-align:center;
+        margin-left: 0.625rem;
+
+    }
+    #iname{
+        text-transform: uppercase ;
+    }
+    @keyframes anima2{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+        
+    }
+    @keyframes anima3{
+        from{
+            scale: 0;
+        }
+        to{
+            scale: 1;
+        }
+        
+    }
+    @media screen and (max-width:500px) {
+        html{
+            font-size: 12px;
+        }
+        h1{
+            margin: 0px;
+        }
+        
+    }
+    @media screen and (max-width:375px) {
+        html{
+            font-size: 10px;
+        }
+        h1{
+            margin: 0px;
+        }
+        
+    }
+    
+
+</style>
+<body>
+    
+    <!-- Input from the user -->
+    <div class="container">
+        <h1 id="head">
+            Welcome to <br>
+            <br>
+            Alex Cinepolis
+        </h1>
+        <div class="user-input1" id="part0">
+                <table>
+                    <tr>
+                        <td>Enter you name</td>
+                        <td><input type="text" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Select type of the ticket</td>
+                        <td><select id="type">
+                            <option value="">Select</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Platinum">Platinum</option>
+                            <option value="Diamond">Diamond</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="button" value="Enter" onclick="sel()" id="btn1"></td>
+                    </tr>
+                </table>
+        </div>
+
+        <div class="user-input2" id="part1" style="display: none;" >
+            <table>
+                <tr>
+                    <td>Enter the number of adult (Above 14)</td>
+                    <td><input type="number" id="nad"></td>
+                </tr>
+                <tr>
+                    <td>Enter the number of child (Below 14)</td>
+                    <td><input type="number" id="ncd"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="Enter" onclick="res()" id="btn1"></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+    <!-- The ticket -->
+    <div class="tct-cont">
+        <div class="ticket-bill" id="part2" style="text-align: center;display: none;">
+            <h3>Alex Cinepolis</h3>
+            <table>
+                <tr>
+                    <td class="fname">Name of the customer :</td>
+                    <td id="iname" class="fvalue"></td>
+                </tr>
+                <tr>
+                    <td class="fname">Type of ticket :</td>
+                    <td class="fvalue" id="itct"></td>
+                </tr>
+                <tr>
+                    <td class="fname">No. of adults :</td>
+                    <td class="fvalue" id="inad"></td>
+                </tr>
+                <tr>
+                    <td class="fname">No. of childs :</td>
+                    <td class="fvalue" id="incd"></td>
+                </tr>
+                <tr>
+                    <td class="fname">Total Bill :</td>
+                    <td class="fvalue" id="ibil"></td>
+                </tr>
+                <tr>
+                    <td class="fname">Eligibility for free coupun :</td>
+                    <td class="fvalue" id="icpn"></td>
+                </tr>
+                <tr>
+                    <td class="fname">Eligibility for free beverages :</td>
+                    <td class="fvalue" id="ibv"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
